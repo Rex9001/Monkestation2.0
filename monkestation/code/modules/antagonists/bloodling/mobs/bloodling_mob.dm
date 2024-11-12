@@ -143,7 +143,7 @@
 /// Creates the mob for us to then mindswap into
 /mob/living/basic/bloodling/proper/proc/evolution(tier)
 	/// What bloodling we are going to spawn
-	var/new_bloodling = null
+	var/mob/living/basic/bloodling/proper/new_bloodling = null
 	if(evolution_level > tier)
 		visible_message(
 			span_alertalien("[src] begins to shrink!"),
@@ -170,6 +170,7 @@
 		if(6)
 			new_bloodling = new /mob/living/basic/bloodling/proper/ascending(src.loc)
 	evolution_mind_change(new_bloodling)
+	new_bloodling.update_health_hud()
 
 
 /mob/living/basic/bloodling/proper/proc/evolution_mind_change(mob/living/basic/bloodling/proper/new_bloodling)

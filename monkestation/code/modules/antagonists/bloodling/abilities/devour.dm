@@ -1,8 +1,8 @@
 /datum/action/cooldown/mob_cooldown/bloodling/devour
 	name = "Devour Limb"
-	desc = "Allows you to consume a creatures limb."
+	desc = "Allows you to consume a creatures limb. Sets ALL your abilities on a 10 second cooldown"
 	button_icon_state = "devour"
-	cooldown_time = 20 SECONDS
+	cooldown_time = 10 SECONDS
 
 /datum/action/cooldown/mob_cooldown/bloodling/devour/PreActivate(atom/target)
 	var/mob/living/mob = target
