@@ -1,10 +1,7 @@
 /mob/living/basic/bloodling
 	name = "abstract bloodling"
 	desc = "A disgusting mass of code and flesh. Report this as an issue if you see it."
-	icon = 'icons/mob/simple/arachnoid.dmi'
-	icon_state = "maint_spider"
-	icon_living = "maint_spider"
-	icon_dead = "maint_spider_dead"
+	icon = 'monkestation/code/modules/antagonists/bloodling/sprites/bloodling_sprites.dmi'
 	gender = NEUTER
 	health = 50
 	maxHealth = 50
@@ -195,6 +192,8 @@
 	return ..()
 
 /mob/living/basic/bloodling/proper/tier1
+	icon_state = "bloodling_stage_1"
+	icon_living = "bloodling_stage_1"
 	evolution_level = 1
 	initial_powers = list(
 		/datum/action/cooldown/mob_cooldown/bloodling/absorb,
@@ -209,8 +208,8 @@
 	add_biomass(50)
 
 /mob/living/basic/bloodling/proper/tier2
-	icon_state = "guard"
-	icon_living = "guard"
+	icon_state = "bloodling_stage_2"
+	icon_living = "bloodling_stage_2"
 	evolution_level = 2
 	initial_powers = list(
 		/datum/action/cooldown/mob_cooldown/bloodling/absorb,
@@ -222,8 +221,8 @@
 	speed = 1
 
 /mob/living/basic/bloodling/proper/tier3
-	icon_state = "scout"
-	icon_living = "scout"
+	icon_state = "bloodling_stage_3"
+	icon_living = "bloodling_stage_3"
 	evolution_level = 3
 	initial_powers = list(
 		/datum/action/cooldown/mob_cooldown/bloodling/absorb,
@@ -235,8 +234,8 @@
 	speed = 1.5
 
 /mob/living/basic/bloodling/proper/tier4
-	icon_state = "ambush"
-	icon_living = "ambush"
+	icon_state = "bloodling_stage_4"
+	icon_living = "bloodling_stage_4"
 	evolution_level = 4
 	initial_powers = list(
 		/datum/action/cooldown/mob_cooldown/bloodling/absorb,
@@ -253,8 +252,8 @@
 	speed = 2
 
 /mob/living/basic/bloodling/proper/tier5
-	icon_state = "hunter"
-	icon_living = "hunter"
+	icon_state = "bloodling_stage_4"
+	icon_living = "bloodling_stage_4"
 	evolution_level = 5
 	initial_powers = list(
 		/datum/action/cooldown/mob_cooldown/bloodling/absorb,
