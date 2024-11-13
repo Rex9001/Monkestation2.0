@@ -7,7 +7,7 @@
 	/// Items we can absorb
 	var/list/absorbable_types = list(
 		/obj/effect/decal/cleanable/blood,
-		/obj/item/food.
+		/obj/item/food,
 	)
 
 /datum/action/cooldown/mob_cooldown/bloodling/absorb/PreActivate(atom/target)
