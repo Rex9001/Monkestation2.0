@@ -6,6 +6,12 @@
 	var/static/datum/dimension_theme/chosen_theme
 	var/list/responses = list("Yes", "No")
 
+/datum/action/cooldown/bloodling/ascension/PreActivate(atom/target)
+	var/datum/antagonist/bloodling/antag = IS_BLOODLING(our_mob)
+	if(antag.is_ascended)
+		return FALSE
+	return ..()
+
 /datum/action/cooldown/bloodling/ascension/Activate(atom/target)
 	var/mob/living/basic/bloodling/proper/our_mob = owner
 	// Adds 500 biomass back
@@ -21,8 +27,13 @@
 	return TRUE
 
 /datum/action/cooldown/bloodling/ascension/proc/ascend(mob/living/basic/bloodling)
+	var/mob/living/basic/bloodling/proper/our_mob = owner
 	// Calls the shuttle
 	SSshuttle.requestEvac(src, "ALERT: LEVEL 4 BIOHAZARD DETECTED. ORGANISM CONTAINMENT HAS FAILED. EVACUATE REMAINING PERSONEL.")
+	our_mob.add_biomass(our_mob.biomass_max-our_mob.biomass)
+	our_mob.evolution(5)
+	var/datum/antagonist/bloodling/antag = IS_BLOODLING(our_mob)
+	antag.is_ascended = TRUE
 
 	if(isnull(chosen_theme))
 		chosen_theme = new /datum/dimension_theme/bloodling()
