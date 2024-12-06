@@ -1,12 +1,13 @@
 /datum/action/cooldown/bloodling/ascension
 	name = "Ascend"
-	desc = "We reach our last form...Mass consumption is required. Costs 500 Biomass and takes 5 minutes for you to ascend."
+	desc = "We spread our wings across the station...Mass consumption is required. Costs 500 Biomass and takes 5 minutes for you to ascend."
 	button_icon_state = "ascend"
 	biomass_cost = 500
 	var/static/datum/dimension_theme/chosen_theme
 	var/list/responses = list("Yes", "No")
 
 /datum/action/cooldown/bloodling/ascension/PreActivate(atom/target)
+	var/mob/living/basic/bloodling/proper/our_mob = owner
 	var/datum/antagonist/bloodling/antag = IS_BLOODLING(our_mob)
 	if(antag.is_ascended)
 		return FALSE
@@ -20,6 +21,7 @@
 	if(tgui_response == "No")
 		return
 	var/turf/our_turf = get_turf(our_mob)
+	to_chat(our_mob, span_noticealien("You grow a chrysalis to begin the change..."))
 	priority_announce("ALERT: LEVEL 4 BIOHAZARD MORPHING IN [get_area(our_turf)]. STOP IT AT ALL COSTS.", "Biohazard")
 	our_mob.evolution(6)
 	// Waits 5 minutes before calling the ascension

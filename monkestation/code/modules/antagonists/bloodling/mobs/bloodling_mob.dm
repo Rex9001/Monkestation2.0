@@ -123,6 +123,8 @@
 
 /// Checks if we should evolve, and also calls the evolution proc
 /mob/living/basic/bloodling/proper/proc/check_evolution()
+	if(evolution_level == 6)
+		return FALSE
 	if((75 > biomass) && (evolution_level != 1))
 		evolution(1)
 		return TRUE
@@ -278,15 +280,11 @@
 	evolution_level = 6
 	initial_powers = list(
 		/datum/action/cooldown/mob_cooldown/bloodling/absorb,
-		/datum/action/cooldown/bloodling/ascension,
 		/datum/action/cooldown/mob_cooldown/bloodling/infest,
-		/datum/action/cooldown/bloodling/build,
-		/datum/action/cooldown/mob_cooldown/bloodling/devour,
 		/datum/action/cooldown/bloodling/dissonant_shriek,
 		/datum/action/cooldown/spell/aoe/repulse/bloodling,
 		/datum/action/cooldown/mob_cooldown/bloodling/transfer_biomass,
 		/datum/action/cooldown/mob_cooldown/bloodling/heal,
-		/datum/action/cooldown/mob_cooldown/bloodling/give_life,
 		/datum/action/cooldown/bloodling_hivespeak,
 	)
 	speed = 0
