@@ -17,13 +17,17 @@
 	var/mob/living/basic/bloodling/proper/our_mob = owner
 	// Adds 500 biomass back
 	our_mob.add_biomass(500)
-	var/tgui_response = tgui_alert(our_mob, "Are you prepared to ascend?", "Ascension", responses, 0)
-	if(tgui_response == "No")
-		return
+	var/choice = tgui_input_list(owner, "Select a shape to mold", "Flesh Construction", responses)
+	if(isnull(choice) || QDELETED(src) || QDELETED(owner))
+		return FALSE
+	if(choice == "No")
+		return FALSE
+
 	var/turf/our_turf = get_turf(our_mob)
 	to_chat(our_mob, span_noticealien("You grow a chrysalis to begin the change..."))
 	priority_announce("ALERT: LEVEL 4 BIOHAZARD MORPHING IN [get_area(our_turf)]. STOP IT AT ALL COSTS.", "Biohazard")
 	our_mob.evolution(6)
+	playsound(our_turf, 'sound/effects/blobattack.ogg', 60)
 	// Waits 5 minutes before calling the ascension
 	addtimer(CALLBACK(src, PROC_REF(ascend), our_mob), 5 MINUTES)
 	return TRUE

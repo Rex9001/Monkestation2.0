@@ -38,5 +38,6 @@
 	message_admins("[key_name_admin(candie)] has taken control of ([key_name_admin(target_mob)])")
 	target_mob.key = candie.key
 	target_mob.mind.add_antag_datum(/datum/antagonist/changeling/bloodling_thrall)
+	playsound(get_turf(target_mob), 'sound/effects/pray_chaplain.ogg')
 	return TRUE
 

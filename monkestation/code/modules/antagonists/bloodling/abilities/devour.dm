@@ -44,5 +44,5 @@
 		span_alertalien("[our_mob] snaps its maw over [target]s [target_part] and swiftly devours it!"),
 		span_noticealien("You devour [target]s [target_part]!"),
 	)
-	playsound(our_mob, 'sound/items/eatfood.ogg', 20)
+	playsound(our_mob, 'sound/magic/demon_attack1.ogg', 80)
 	return TRUE

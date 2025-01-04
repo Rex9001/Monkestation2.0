@@ -26,6 +26,7 @@
 	carbon_mob.adjustToxLoss(-40)
 	carbon_mob.adjustFireLoss(-40)
 	carbon_mob.adjustOxyLoss(-40)
+	playsound(carbon_mob, 'sound/magic/staff_healing.ogg', 30)
 
 	if(carbon_mob.stat != DEAD)
 		return TRUE

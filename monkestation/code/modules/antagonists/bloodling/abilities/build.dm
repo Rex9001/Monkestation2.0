@@ -35,4 +35,5 @@
 	)
 
 	new choice_path(get_turf(owner))
+	playsound(get_turf(owner), 'sound/items/eatfood.ogg', 20)
 	return TRUE

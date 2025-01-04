@@ -14,5 +14,6 @@
 		light_break.on = TRUE
 		light_break.break_light_tube()
 		stoplag()
+	playsound(get_turf(owner), 'sound/effects/screech.ogg')
 
 	return TRUE

@@ -31,7 +31,7 @@
 	///the minimum time it takes for a rat to spawn
 	var/minimum_rattime = 1 MINUTES
 	///the maximum time it takes for a rat to spawn
-	var/maximum_rattime = 3 MINUTES
+	var/maximum_rattime = 2 MINUTES
 	//the cooldown between each rat
 	COOLDOWN_DECLARE(rattime)
 

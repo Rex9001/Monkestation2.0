@@ -72,6 +72,7 @@
 
 /mob/living/basic/bloodling/proper/Initialize(mapload)
 	. = ..()
+	AddElement(/datum/element/footstep, FOOTSTEP_MOB_SLIME, 0.5, -11)
 
 	// All evolutions over 2 (3,4,5) are spess proof
 	if(evolution_level > 2)

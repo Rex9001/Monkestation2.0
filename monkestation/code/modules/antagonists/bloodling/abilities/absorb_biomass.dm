@@ -85,6 +85,7 @@
 
 	if(!do_after(owner, absorb_time, mob_to_absorb))
 		mob_to_absorb.RemoveComponentSource(REF(src), /datum/component/leash)
+		is_absorbing = FALSE
 		return FALSE
 
 	is_absorbing = FALSE
