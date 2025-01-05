@@ -57,6 +57,7 @@
 			span_alertalien("[our_mob] wraps its tendrils around [target]. It absorbs it!"),
 			span_noticealien("You wrap your tendrils around [target] and absorb it!"),
 		)
+		playsound(our_mob, 'sound/items/eatfood.ogg', 20)
 		return TRUE
 
 	var/mob/living/mob_to_absorb = target

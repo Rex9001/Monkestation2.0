@@ -41,9 +41,12 @@
 			return FALSE
 		var/datum/antagonist/changeling/bloodling_thrall/thrall = carbon_mob.mind.add_antag_datum(/datum/antagonist/changeling/bloodling_thrall)
 		thrall.set_master(owner)
+
 	else
 		if(!do_after(owner, infest_time))
 			return FALSE
 		var/datum/antagonist/infested_thrall/thrall = mob.mind.add_antag_datum(/datum/antagonist/infested_thrall)
 		thrall.set_master(owner)
+
+	playsound(get_turf(mob), 'sound/items/drink.ogg', 30)
 	return TRUE
