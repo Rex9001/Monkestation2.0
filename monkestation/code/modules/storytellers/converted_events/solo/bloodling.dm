@@ -27,13 +27,15 @@
 		JOB_SECURITY_OFFICER,
 		JOB_SECURITY_ASSISTANT,
 	)
-	required_enemies = 3
+	required_enemies = 5
 	weight = 4
-	max_occurrences = 1
+	max_occurrences = 0
 	maximum_antags = 2
+	min_players = 45
 	denominator = 30
 
 /datum/round_event_control/antagonist/solo/bloodling/roundstart
-	name = "Bloodling"
+	name = "Bloodlings"
 	roundstart = TRUE
 	earliest_start = 0 SECONDS
+	max_occurrences = 1
