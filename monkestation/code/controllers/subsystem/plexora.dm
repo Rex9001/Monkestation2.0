@@ -38,11 +38,15 @@ SUBSYSTEM_DEF(plexora)
 	var/version_increment_counter = 2
 	var/configuration_path = "config/plexora.json"
 	var/plexora_is_alive = FALSE
+	var/vanderlin_available = FALSE
 	var/http_root = ""
 	var/http_port = 0
 	var/enabled = TRUE
 	var/tripped_bad_version = FALSE
 	var/list/default_headers
+
+	//other thingys!
+	var/hrp_available = FALSE
 
 /datum/controller/subsystem/plexora/Initialize()
 	if (!rustg_file_exists(configuration_path))
@@ -69,6 +73,11 @@ SUBSYSTEM_DEF(plexora)
 	http_root = config["ip"]
 	http_port = config["port"]
 
+	default_headers = list(
+		"Content-Type" = "application/json",
+		"Authorization" = AUTH_HEADER,
+	)
+
 	// Do a ping test to check if Plexora is actually running
 	if (!is_plexora_alive())
 		stack_trace("SSplexora is enabled BUT plexora is not alive or running! SS has not been aborted, subsequent fires will take place.")
@@ -77,10 +86,6 @@ SUBSYSTEM_DEF(plexora)
 
 	RegisterSignal(SSticker, COMSIG_TICKER_ROUND_STARTING, PROC_REF(roundstarted))
 
-	default_headers = list(
-		"Content-Type" = "application/json",
-		"Authorization" = AUTH_HEADER,
-	)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/plexora/Recover()
@@ -105,6 +110,7 @@ SUBSYSTEM_DEF(plexora)
 	var/datum/http_response/response = request.into_response()
 	if (response.errored)
 		plexora_is_alive = FALSE
+		log_admin("Failed to check if Plexora is alive! She probably isn't. Check config on both sides")
 		CRASH("Failed to check if Plexora is alive! She probably isn't. Check config on both sides")
 	else
 		var/list/json_body = json_decode(response.body)
@@ -117,6 +123,10 @@ SUBSYSTEM_DEF(plexora)
 		return TRUE
 
 /datum/controller/subsystem/plexora/fire()
+	/*if((cur_day == "Sat") && (cur_hour >= 12 && cur_hour <= 18))
+  	//hrp_available = check_byondserver_status("7cfa7daf")
+	//else
+    		hrp_available = FALSE */
 	if(!is_plexora_alive()) return
 	// Send current status to Plexora
 	var/datum/world_topic/status/status_handler = new()
@@ -193,6 +203,24 @@ SUBSYSTEM_DEF(plexora)
 		"ip" = interview.owner?.address,
 		"computer_id" = interview.owner?.computer_id,
 	))
+
+/datum/controller/subsystem/plexora/proc/check_byondserver_status(id)
+	if (isnull(id)) return
+
+	var/list/body = list(
+		"id" = id
+	)
+
+	var/datum/http_request/request = new(RUSTG_HTTP_METHOD_GET, "http://[http_root]:[http_port]/byondserver_alive", json_encode(body), default_headers)
+	request.begin_async()
+	UNTIL_OR_TIMEOUT(request.is_complete(), 5 SECONDS)
+	var/datum/http_response/response = request.into_response()
+	if (response.errored)
+		stack_trace("check_byondserver_status failed, likely an bad id passed ([id]) aka id of a server that doesnt exist")
+		return FALSE
+	else
+		var/list/json_body = json_decode(response.body)
+		return json_body["alive_likely"]
 
 // note: recover_all_SS_and_recreate_master to force mc shit
 
