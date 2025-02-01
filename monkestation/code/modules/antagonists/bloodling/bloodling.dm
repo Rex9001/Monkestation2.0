@@ -29,4 +29,4 @@
 	objectives += ascend_objective
 
 /datum/antagonist/bloodling/get_preview_icon()
-	return finish_preview_icon(icon('monkestation/code/modules/antagonists/bloodling/sprites/bloodling_sprites.dmi', "bloodling_stage_3"))
+	return finish_preview_icon(icon('monkestation/code/modules/antagonists/bloodling/sprites/bloodling_sprites.dmi', "bloodling_stage_1"))
