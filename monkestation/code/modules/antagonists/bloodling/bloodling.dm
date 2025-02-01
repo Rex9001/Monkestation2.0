@@ -27,3 +27,6 @@
 	var/datum/objective/bloodling_ascend/ascend_objective = new
 	ascend_objective.owner = owner
 	objectives += ascend_objective
+
+/datum/antagonist/bloodling/get_preview_icon()
+	return finish_preview_icon(icon('monkestation/code/modules/antagonists/bloodling/sprites/bloodling_sprites.dmi', "bloodling_stage_3"))
