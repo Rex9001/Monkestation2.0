@@ -198,6 +198,7 @@
 /mob/living/basic/bloodling/proper/tier1
 	icon_state = "bloodling_stage_1"
 	icon_living = "bloodling_stage_1"
+	icon_dead = "bloodling_stage_1_dead"
 	evolution_level = 1
 	initial_powers = list(
 		/datum/action/cooldown/mob_cooldown/bloodling/absorb,
@@ -214,6 +215,7 @@
 /mob/living/basic/bloodling/proper/tier2
 	icon_state = "bloodling_stage_2"
 	icon_living = "bloodling_stage_2"
+	icon_dead = "bloodling_stage_2_dead"
 	evolution_level = 2
 	initial_powers = list(
 		/datum/action/cooldown/mob_cooldown/bloodling/absorb,
@@ -227,6 +229,7 @@
 /mob/living/basic/bloodling/proper/tier3
 	icon_state = "bloodling_stage_3"
 	icon_living = "bloodling_stage_3"
+	icon_dead = "bloodling_stage_3_dead"
 	evolution_level = 3
 	initial_powers = list(
 		/datum/action/cooldown/mob_cooldown/bloodling/absorb,
@@ -240,6 +243,7 @@
 /mob/living/basic/bloodling/proper/tier4
 	icon_state = "bloodling_stage_4"
 	icon_living = "bloodling_stage_4"
+	icon_dead = "bloodling_stage_4_dead"
 	evolution_level = 4
 	initial_powers = list(
 		/datum/action/cooldown/mob_cooldown/bloodling/absorb,
@@ -258,6 +262,7 @@
 /mob/living/basic/bloodling/proper/tier5
 	icon_state = "bloodling_stage_4"
 	icon_living = "bloodling_stage_4"
+	icon_dead = "bloodling_stage_4_dead"
 	evolution_level = 5
 	initial_powers = list(
 		/datum/action/cooldown/mob_cooldown/bloodling/absorb,
