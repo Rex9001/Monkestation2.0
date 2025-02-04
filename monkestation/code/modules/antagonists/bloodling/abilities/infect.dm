@@ -1,6 +1,9 @@
 /datum/action/cooldown/bloodling_infect
 	name = "Infect"
 	desc = "Allows us to make someone our thrall, this consumes our host body and reveals our true form."
+	background_icon = 'monkestation/icons/mob/actions/backgrounds.dmi'
+	background_icon_state = "bg_bloodling"
+	button_icon = 'monkestation/code/modules/antagonists/bloodling/sprites/bloodling_abilities.dmi'
 	button_icon_state = "infest"
 	///if we're currently infecting
 	var/is_infecting = FALSE

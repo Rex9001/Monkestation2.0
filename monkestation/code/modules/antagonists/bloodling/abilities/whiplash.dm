@@ -22,7 +22,7 @@
 /obj/effect/temp_visual/bloodling_tentacle
 	icon = 'monkestation/code/modules/antagonists/bloodling/sprites/bloodling_sprites.dmi'
 	icon_state = "tentacle_effect"
-	duration = 4
+	duration = 7
 
 /datum/action/cooldown/spell/aoe/repulse/bloodling/IsAvailable(feedback = FALSE)
 	. = ..()
