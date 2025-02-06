@@ -37,7 +37,9 @@
 	if(HAS_TRAIT(carbon_mob, TRAIT_MINDSHIELD))
 		infest_time *= 2
 
+	owner.balloon_alert(carbon_mob, "[owner] attempts to infect you!")
 	if(!do_after(owner, infest_time))
+		is_infecting = FALSE
 		return FALSE
 
 	if(carbon_mob.stat == DEAD)
@@ -56,6 +58,7 @@
 		)
 
 		if(!LAZYLEN(candidates))
+			is_infecting = FALSE
 			return FALSE
 
 		var/mob/dead/observer/chosen = pick(candidates)

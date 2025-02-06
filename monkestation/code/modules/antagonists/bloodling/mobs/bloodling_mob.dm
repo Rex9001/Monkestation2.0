@@ -226,6 +226,10 @@
 	)
 	speed = 1
 
+/mob/living/basic/bloodling/proper/tier2/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
+
 /mob/living/basic/bloodling/proper/tier3
 	icon_state = "bloodling_stage_3"
 	icon_living = "bloodling_stage_3"
@@ -278,24 +282,3 @@
 		/datum/action/cooldown/bloodling_hivespeak,
 	)
 	speed = 2.5
-
-/mob/living/basic/bloodling/proper/ascending
-	icon = 'icons/mob/simple/meteor_heart.dmi'
-	icon_state = "heart"
-	icon_living = "heart"
-	evolution_level = 6
-	initial_powers = list(
-		/datum/action/cooldown/mob_cooldown/bloodling/absorb,
-		/datum/action/cooldown/mob_cooldown/bloodling/infest,
-		/datum/action/cooldown/bloodling/dissonant_shriek,
-		/datum/action/cooldown/spell/aoe/repulse/bloodling,
-		/datum/action/cooldown/mob_cooldown/bloodling/transfer_biomass,
-		/datum/action/cooldown/mob_cooldown/bloodling/heal,
-		/datum/action/cooldown/bloodling_hivespeak,
-	)
-	speed = 0
-	move_resist = INFINITY
-
-/mob/living/basic/bloodling/proper/ascending/Initialize(mapload)
-	. = ..()
-	ADD_TRAIT(src, TRAIT_IMMOBILIZED, REF(src))

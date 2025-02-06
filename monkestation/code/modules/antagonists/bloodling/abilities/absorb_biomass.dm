@@ -73,6 +73,9 @@
 
 		if(biomass_gain < 10)
 			biomass_gain = 10
+
+		if (istype(mob_to_absorb, /mob/living/basic/bloodling/minion))
+			biomass_gain = 30
 	else
 		var/mob/living/carbon/carbon_to_absorb = target
 		if(ismonkey(carbon_to_absorb))
@@ -84,6 +87,7 @@
 	// Setting this to true means they cant target the same person multiple times, or other people since it allows for speedrunning
 	is_absorbing = TRUE
 
+	owner.balloon_alert(mob_to_absorb, "[owner] attempts to infest you!")
 	if(!do_after(owner, absorb_time, mob_to_absorb))
 		mob_to_absorb.RemoveComponentSource(REF(src), /datum/component/leash)
 		is_absorbing = FALSE

@@ -37,6 +37,7 @@
 		if(HAS_TRAIT(carbon_mob, TRAIT_MINDSHIELD))
 			infest_time *= 4
 
+		owner.balloon_alert(carbon_mob, "[owner] attempts to infest you!")
 		if(!do_after(owner, infest_time))
 			return FALSE
 		var/datum/antagonist/changeling/bloodling_thrall/thrall = carbon_mob.mind.add_antag_datum(/datum/antagonist/changeling/bloodling_thrall)

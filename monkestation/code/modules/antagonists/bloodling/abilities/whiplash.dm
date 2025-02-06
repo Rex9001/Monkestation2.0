@@ -1,8 +1,8 @@
 /datum/action/cooldown/spell/aoe/repulse/bloodling
 	name = "Whiplash"
-	desc = "Grow whiplike appendages and throw back nearby attackers."
-	background_icon = 'monkestation/icons/mob/actions/backgrounds.dmi'
-	background_icon_state = "bg_bloodling"
+	desc = "Grow whiplike appendages and throw back nearby attackers. Costs 25 biomass."
+	background_icon = 'monkestation/code/modules/antagonists/bloodling/sprites/bloodling_abilities.dmi'
+	background_icon_state = "button_bg"
 	button_icon = 'monkestation/code/modules/antagonists/bloodling/sprites/bloodling_abilities.dmi'
 	button_icon_state = "whiplash"
 	sound = 'sound/magic/tail_swing.ogg'
