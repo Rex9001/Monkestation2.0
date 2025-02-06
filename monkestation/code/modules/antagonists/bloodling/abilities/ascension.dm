@@ -1,6 +1,6 @@
 /datum/action/cooldown/bloodling/ascension
 	name = "Ascend"
-	desc = "We spread our wings across the station...Mass consumption is required. Costs 500 Biomass and takes 5 minutes for you to ascend."
+	desc = "We spread our wings across the station...Mass consumption is required. Costs 500 Biomass and takes 5 minutes for you to ascend. Your presence will be alerted to the crew. Fortify the hive."
 	button_icon_state = "ascend"
 	biomass_cost = 500
 	var/static/datum/dimension_theme/chosen_theme

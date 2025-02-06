@@ -1,6 +1,6 @@
 /datum/action/cooldown/bloodling/build
 	name = "Mold Flesh"
-	desc = "Use your biomass to forge creatures or structures."
+	desc = "Use your biomass to forge creatures or structures. Costs 30 biomass. Creatures are soulless, and need to be given life."
 	button_icon_state = "build"
 	biomass_cost = 30
 	/// A list of all structures we can make.
