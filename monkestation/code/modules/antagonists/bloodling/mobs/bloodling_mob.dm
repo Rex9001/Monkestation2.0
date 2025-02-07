@@ -98,8 +98,8 @@
 			biomass_next_evo = 175
 		if(4)
 			biomass_next_evo = 225
-		if(5)
-			biomass_next_evo = biomass_max
+	if(evolution_level > 4)
+		biomass_next_evo = biomass_max
 
 	if(hud_used?.action_intent)
 		hud_used.action_intent.maptext = MAPTEXT("Your biomass: [biomass] / [biomass_next_evo] \n")

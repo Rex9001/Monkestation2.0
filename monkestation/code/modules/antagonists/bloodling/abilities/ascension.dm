@@ -104,6 +104,7 @@
 		chosen_theme.apply_theme(transform_turf)
 		CHECK_TICK
 
+
 /turf/open/misc/bloodling
 	name = "nerve threads"
 	icon = 'monkestation/code/modules/antagonists/bloodling/sprites/flesh_tile.dmi'
@@ -139,6 +140,7 @@
 	transform = translation
 
 	underlay_appearance.transform = transform
+
 
 /datum/dimension_theme/bloodling
 	icon = 'icons/obj/food/meat.dmi'
